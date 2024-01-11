@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pregunta</title>
+  <style>
+    body {
+      text-align: center;
+      margin-top: 100px;
+      background-color: rgb(161, 107, 211);
+    }
+
+    #noButton {
+      transition: transform 0.5s ease-in-out;
+    }
+
+    #postboton {
+        margin-bottom: 20px;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+  <h2>¿Me perdonas, Damis?</h2>
+  
+  <button onclick="responder('Sí')">Sí</button>
+  <button id="noButton" onClick="moverNo()" onmouseenter="moverNo()">No</button>
+<div id="postboton">
+
+</div>
+  <script>
+    function responder(respuesta) {
+      if (respuesta === 'Sí') {
+        alert('¡Gracias! Te amitooo <3');
+        // Inserta la imagen después de los botones al hacer clic en "Sí"
+        $('<img src="https://i.pinimg.com/originals/c0/29/cf/c029cfbcb759e2159a2ccbaadc50225b.gif" alt="GIF">').insertAfter('#postboton');
+      } else {
+        // No realizar ninguna acción aquí, ya que la acción se manejará en la función moverNo()
+      }
+    }
+
+    function moverNo() {
+      // Genera un número aleatorio entre -100 y 100 para la traslación en ambas direcciones
+      var deltaX = Math.floor(Math.random() * 200) - 100;
+      var deltaY = Math.floor(Math.random() * 200) - 100;
+
+      $('#noButton').css('transform', 'translate(' + deltaX + 'px, ' + deltaY + 'px)');
+    }
+  </script>
+
+</body>
+</html>
